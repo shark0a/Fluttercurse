@@ -4,7 +4,7 @@ import 'package:task/views/nav_screens/main_screen.dart';
 import 'package:task/views/nav_screens/setting_screen.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({super.key});
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -13,9 +13,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int pageindex = 0;
   List<Widget> pages = [
-    MainScreen(),
-    CategorieScreen(),
-    SettingScreen(),
+    const MainScreen(),
+    const CategorieScreen(),
+    const SettingScreen(),
   ];
 
   @override
@@ -25,7 +25,7 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: pageindex,
           onTap: onNavBarTaped,
-          items: [
+          items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
             BottomNavigationBarItem(
                 icon: Icon(Icons.category), label: 'Categoris'),

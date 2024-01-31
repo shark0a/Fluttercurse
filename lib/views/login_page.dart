@@ -25,7 +25,7 @@ class _LoginPageState extends State<LoginPage> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  SizedBox(height: 80),
+                  const SizedBox(height: 80),
                   SizedBox(
                     height: 150,
                     child: Image.asset("assets/image/OIP.jpeg"),
@@ -38,11 +38,11 @@ class _LoginPageState extends State<LoginPage> {
                       }
                       return null;
                     },
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: "Username",
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 28,
                   ),
                   TextFormField(
@@ -68,14 +68,14 @@ class _LoginPageState extends State<LoginPage> {
                       labelText: "Password",
                     ),
                   ),
-                  SizedBox(height: 30),
+                  const SizedBox(height: 30),
                   CustomButton(
                       ontap: () {
                         if (formkey.currentState!.validate()) {
                           setState(() {});
                           Navigator.push(context, MaterialPageRoute(
                             builder: (context) {
-                              return HomePage();
+                              return const HomePage();
                             },
                           ));
                           passwordcontroll.clear();
@@ -83,10 +83,10 @@ class _LoginPageState extends State<LoginPage> {
                       },
                       label: 'Login',
                       color: Colors.blue),
-                  SizedBox(height: 20),
-                  Text('forget password ?',
+                  const SizedBox(height: 20),
+                  const Text('forget password ?',
                       style: TextStyle(decoration: TextDecoration.underline)),
-                  SizedBox(height: 40),
+                  const SizedBox(height: 40),
                   CustomButton(
                       ontap: () {},
                       color: Colors.grey,

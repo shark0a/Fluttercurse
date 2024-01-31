@@ -6,7 +6,7 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Main Screens'),
+        title: const Text('Main Screens'),
         automaticallyImplyLeading: true,
       ),
     );
