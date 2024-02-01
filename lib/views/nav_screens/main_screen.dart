@@ -48,7 +48,7 @@ class _MainScreenState extends State<MainScreen> {
             final item_price = items.values.elementAt(index);
             final itemName = items.keys.elementAt(index);
 
-            return Card_Item(item_Price: item_price, item_name: itemName);
+            return Card_Item(item_price: item_price, item_name: itemName);
           },
         ));
   }

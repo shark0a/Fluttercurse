@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:nb_utils/nb_utils.dart';
 
 class Card_Item extends StatelessWidget {
   const Card_Item({
     super.key,
     required this.item_name,
-    required this.item_Price,
+    required this.item_price,
   });
   final String item_name;
-  final double item_Price;
+  final double item_price;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -24,7 +23,7 @@ class Card_Item extends StatelessWidget {
           children: [
             Icon(Icons.run_circle),
             Text(item_name),
-            Text('Price: $item_Price\$'),
+            Text('Price: $item_price\$'),
           ],
         ),
       ),
