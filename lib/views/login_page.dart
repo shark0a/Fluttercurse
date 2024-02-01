@@ -78,7 +78,7 @@ class _LoginPageState extends State<LoginPage> {
                               return const HomePage();
                             },
                           ));
-                          passwordcontroll.clear();
+                          // passwordcontroll.clear();
                         }
                       },
                       label: 'Login',

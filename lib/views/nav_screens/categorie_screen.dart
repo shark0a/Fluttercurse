@@ -1,13 +1,53 @@
 import 'package:flutter/material.dart';
+import 'package:task/widgets/categories_card.dart';
 
-class CategorieScreen extends StatelessWidget {
+class CategorieScreen extends StatefulWidget {
   const CategorieScreen({super.key});
 
   @override
+  State<CategorieScreen> createState() => _CategorieScreenState();
+}
+
+class _CategorieScreenState extends State<CategorieScreen> {
+  final Map<IconData, String> categories = {
+    Icons.category: "Clothing",
+    Icons.sports_basketball: "Sports",
+    Icons.book: "Books",
+    Icons.music_note: "Music",
+    Icons.movie: "Movies",
+    Icons.food_bank: "Food",
+    Icons.directions_run: "Fitness",
+    Icons.home: "Home",
+    Icons.local_pizza: "Pizza",
+    Icons.airplanemode_active: "Travel",
+    Icons.brush: "Art",
+    Icons.devices_other: "Electronics",
+    Icons.pets: "Pets",
+    Icons.event: "Events",
+    Icons.shopping_cart: "Shopping",
+  };
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // ignore: prefer_const_constructors
-      appBar: AppBar(title: Text('Categoris Screens')),
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        centerTitle: true,
+        title: Text('Categoris Screens'),
+        backgroundColor: Colors.amber,
+      ),
+      body: GridView.builder(
+        itemCount: categories.length,
+        gridDelegate:
+            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+        itemBuilder: (context, index) {
+          final icon = categories.keys.elementAt(index);
+          final name = categories.values.elementAt(index);
+          return Categories_card(
+            categories_name: name,
+            icon: icon,
+          );
+        },
+      ),
     );
   }
 }
