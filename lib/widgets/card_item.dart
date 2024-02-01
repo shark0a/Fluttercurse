@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Card_Item extends StatelessWidget {
-  const Card_Item({
+class CardItem extends StatelessWidget {
+  const CardItem({
     super.key,
-    required this.item_name,
-    required this.item_price,
+    required this.itemname,
+    required this.itemprices,
   });
-  final String item_name;
-  final double item_price;
+  final String itemname;
+  final double itemprices;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -16,14 +16,14 @@ class Card_Item extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         height: 50,
         decoration: BoxDecoration(
-            color: Color.fromARGB(255, 95, 217, 207),
+            color: const Color.fromARGB(255, 95, 217, 207),
             borderRadius: BorderRadius.circular(5)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Icon(Icons.run_circle),
-            Text(item_name),
-            Text('Price: $item_price\$'),
+            const Icon(Icons.run_circle),
+            Text(itemname),
+            Text('Price: $itemprices\$'),
           ],
         ),
       ),

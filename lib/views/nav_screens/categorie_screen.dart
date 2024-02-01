@@ -32,18 +32,18 @@ class _CategorieScreenState extends State<CategorieScreen> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         centerTitle: true,
-        title: Text('Categoris Screens'),
+        title: const Text('Categoris Screens'),
         backgroundColor: Colors.amber,
       ),
       body: GridView.builder(
         itemCount: categories.length,
         gridDelegate:
-            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+            const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
         itemBuilder: (context, index) {
           final icon = categories.keys.elementAt(index);
           final name = categories.values.elementAt(index);
-          return Categories_card(
-            categories_name: name,
+          return CategoriesCard(
+            categoriesname: name,
             icon: icon,
           );
         },

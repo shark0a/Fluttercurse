@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:task/views/login_page.dart';
 import 'package:task/widgets/card_item.dart';
 import 'package:task/widgets/drawer.dart';
 
@@ -41,14 +40,14 @@ class _MainScreenState extends State<MainScreen> {
           title: const Text('Main Screens'),
           backgroundColor: Colors.amber,
         ),
-        drawer: Drawerr(),
+        drawer: const Drawerr(),
         body: ListView.builder(
           itemCount: items.length,
           itemBuilder: (context, index) {
-            final item_price = items.values.elementAt(index);
+            final itemprice = items.values.elementAt(index);
             final itemName = items.keys.elementAt(index);
 
-            return Card_Item(item_price: item_price, item_name: itemName);
+            return CardItem(itemprices: itemprice, itemname: itemName);
           },
         ));
   }

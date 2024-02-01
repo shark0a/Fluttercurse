@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Categories_card extends StatelessWidget {
-  const Categories_card({
+class CategoriesCard extends StatelessWidget {
+  const CategoriesCard({
     super.key,
     required this.icon,
-    required this.categories_name,
+    required this.categoriesname,
   });
   final IconData icon;
-  final String categories_name;
+  final String categoriesname;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -21,7 +21,7 @@ class Categories_card extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(icon),
-            Text(categories_name),
+            Text(categoriesname),
           ],
         ),
       ),

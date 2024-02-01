@@ -24,10 +24,10 @@ class Drawerr extends StatelessWidget {
                 onTap: () {
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => LoginPage()),
+                    MaterialPageRoute(builder: (context) => const LoginPage()),
                   );
                 },
-                child: Row(
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Icon(
@@ -35,7 +35,7 @@ class Drawerr extends StatelessWidget {
                       color: Colors.amber,
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 25),
+                      padding: EdgeInsets.only(left: 25),
                       child: Text(
                         "Signout ",
                         style: TextStyle(color: Colors.black),
