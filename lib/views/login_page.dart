@@ -73,12 +73,12 @@ class _LoginPageState extends State<LoginPage> {
                       ontap: () {
                         if (formkey.currentState!.validate()) {
                           setState(() {});
-                          Navigator.push(context, MaterialPageRoute(
+                          Navigator.pushReplacement(context, MaterialPageRoute(
                             builder: (context) {
                               return const HomePage();
                             },
                           ));
-                          // passwordcontroll.clear();
+                          passwordcontroll.clear();
                         }
                       },
                       label: 'Login',
