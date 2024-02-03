@@ -80,6 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                           await prefs.setString(
                               AppSettings.usernameSharedPrefsKey,
                               usernamecontroll.text);
+                          // ignore: use_build_context_synchronously
                           Navigator.pushReplacement(context, MaterialPageRoute(
                             builder: (context) {
                               return const HomePage();

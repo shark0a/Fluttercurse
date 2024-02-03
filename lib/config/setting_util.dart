@@ -26,6 +26,7 @@ class SettingsUtil {
                 final SharedPreferences prefs =
                     await SharedPreferences.getInstance();
                 await prefs.remove(AppSettings.usernameSharedPrefsKey);
+                // ignore: use_build_context_synchronously
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => const LoginPage()),
