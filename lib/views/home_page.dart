@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task/const.dart';
 import 'package:task/views/nav_screens/categorie_screen.dart';
 import 'package:task/views/nav_screens/main_screen.dart';
 import 'package:task/views/nav_screens/setting_screen.dart';
@@ -13,11 +14,23 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int pageindex = 0;
+  String username = "";
   List<Widget> pages = [
     const MainScreen(),
     const CategorieScreen(),
     const SettingScreen(),
   ];
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getusername();
+  }
+
+  Future<void> getusername() async {
+    username = await AppSettings.getCashedusername();
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +39,7 @@ class _HomePageState extends State<HomePage> {
         title: const Text('Main Screens'),
         backgroundColor: Colors.amber,
       ),
-      drawer: const Drawerr(),
+      drawer: Drawerr(username: username),
       body: pages[pageindex],
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: pageindex,

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:task/const.dart';
 import 'package:task/views/home_page.dart';
 import 'package:task/widgets/custom_button.dart';
 
@@ -70,9 +72,14 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   const SizedBox(height: 30),
                   CustomButton(
-                      ontap: () {
+                      ontap: () async {
                         if (formkey.currentState!.validate()) {
                           setState(() {});
+                          final SharedPreferences prefs =
+                              await SharedPreferences.getInstance();
+                          await prefs.setString(
+                              AppSettings.usernameSharedPrefsKey,
+                              usernamecontroll.text);
                           Navigator.pushReplacement(context, MaterialPageRoute(
                             builder: (context) {
                               return const HomePage();

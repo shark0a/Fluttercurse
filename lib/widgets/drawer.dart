@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:task/config/setting_util.dart';
 import 'package:task/views/login_page.dart';
 
 class Drawerr extends StatelessWidget {
   const Drawerr({
     super.key,
+    this.username = "--",
   });
+  final String username;
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +50,7 @@ class Drawerr extends StatelessWidget {
                       CircleAvatar(
                           backgroundColor: Colors.amber,
                           child: Icon(Icons.person)),
-                      Text('User Name')
+                      Text('User Name :$username')
                     ],
                   ),
                   SizedBox(
@@ -80,10 +83,7 @@ class Drawerr extends StatelessWidget {
             Divider(),
             ListTile(
               onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => const LoginPage()),
-                );
+                SettingsUtil.signOutFlow(context);
               },
               leading: Icon(Icons.logout),
               title: Text('Sign out'),
