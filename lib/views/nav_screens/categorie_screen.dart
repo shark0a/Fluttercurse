@@ -29,12 +29,6 @@ class _CategorieScreenState extends State<CategorieScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        centerTitle: true,
-        title: const Text('Categoris Screens'),
-        backgroundColor: Colors.amber,
-      ),
       body: GridView.builder(
         itemCount: categories.length,
         gridDelegate:

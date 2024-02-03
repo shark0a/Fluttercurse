@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:task/widgets/card_item.dart';
-import 'package:task/widgets/drawer.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -36,19 +35,14 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Main Screens'),
-          backgroundColor: Colors.amber,
-        ),
-        drawer: const Drawerr(),
         body: ListView.builder(
-          itemCount: items.length,
-          itemBuilder: (context, index) {
-            final itemprice = items.values.elementAt(index);
-            final itemName = items.keys.elementAt(index);
+      itemCount: items.length,
+      itemBuilder: (context, index) {
+        final itemprice = items.values.elementAt(index);
+        final itemName = items.keys.elementAt(index);
 
-            return CardItem(itemprices: itemprice, itemname: itemName);
-          },
-        ));
+        return CardItem(itemprices: itemprice, itemname: itemName);
+      },
+    ));
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:task/views/nav_screens/categorie_screen.dart';
 import 'package:task/views/nav_screens/main_screen.dart';
 import 'package:task/views/nav_screens/setting_screen.dart';
+import 'package:task/widgets/drawer.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -21,6 +22,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Main Screens'),
+        backgroundColor: Colors.amber,
+      ),
+      drawer: const Drawerr(),
       body: pages[pageindex],
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: pageindex,
