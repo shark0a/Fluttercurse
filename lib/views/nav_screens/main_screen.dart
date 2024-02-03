@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:task/models/product_model.dart';
+import 'package:task/service/product_services.dart';
+import 'package:task/views/details_page.dart';
 import 'package:task/widgets/card_item.dart';
 
 class MainScreen extends StatefulWidget {
@@ -9,40 +12,47 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  final Map<String, double> items = {
-    "T-shirt": 45.0,
-    "Jeans": 60.0,
-    "Sneakers": 80.0,
-    "Backpack": 50.0,
-    "Hat": 25.0,
-    "Watch": 120.0,
-    "Sunglasses": 35.0,
-    "Laptop Bag": 55.0,
-    "Headphones": 90.0,
-    "Water Bottle": 15.0,
-    "Jacket": 75.0,
-    "Running Shoes": 70.0,
-    "Fitness Tracker": 100.0,
-    "Smartphone Stand": 20.0,
-    "Travel Pillow": 30.0,
-    "Hiking Boots": 85.0,
-    "Bluetooth Speaker": 65.0,
-    "Dress Shirt": 50.0,
-    "Gaming Mouse": 40.0,
-    "Desk Organizer": 25.0,
-  };
+  List<Product> productlist = [];
+  bool isLoading = true;
+
+  Future<void> getData() async {
+    productlist = await ProductsService.getProductsData();
+    isLoading = false;
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getData();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: ListView.builder(
-      itemCount: items.length,
-      itemBuilder: (context, index) {
-        final itemprice = items.values.elementAt(index);
-        final itemName = items.keys.elementAt(index);
-
-        return CardItem(itemprices: itemprice, itemname: itemName);
-      },
-    ));
+    return isLoading
+        ? const Center(
+            child: CircularProgressIndicator(),
+          )
+        : ListView.builder(
+            itemCount: productlist.length,
+            itemBuilder: (BuildContext context, int index) {
+              return InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ProductDetailsScreen(
+                          product: productlist[index],
+                        ),
+                      ));
+                },
+                child: ItemCard(
+                    productName: productlist[index].title ?? "--",
+                    price: "${productlist[index].price}",
+                    thumbnail: productlist[index].thumbnail ?? ""),
+              );
+            },
+          );
   }
 }

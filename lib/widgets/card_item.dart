@@ -1,29 +1,32 @@
 import 'package:flutter/material.dart';
 
-class CardItem extends StatelessWidget {
-  const CardItem({
-    super.key,
-    required this.itemname,
-    required this.itemprices,
-  });
-  final String itemname;
-  final double itemprices;
+class ItemCard extends StatelessWidget {
+  final String productName;
+  final String price;
+  final String thumbnail;
+  const ItemCard({
+    Key? key,
+    required this.productName,
+    required this.price,
+    required this.thumbnail,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+      padding: const EdgeInsets.all(8.0),
       child: Container(
-        width: MediaQuery.of(context).size.width,
-        height: 50,
-        decoration: BoxDecoration(
-            color: const Color.fromARGB(255, 95, 217, 207),
-            borderRadius: BorderRadius.circular(5)),
+        decoration: BoxDecoration(color: Colors.grey, borderRadius: BorderRadius.circular(10)),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Icon(Icons.run_circle),
-            Text(itemname),
-            Text('Price: $itemprices\$'),
+            SizedBox(width: 70, height: 70, child: Image.network(thumbnail)),
+            Text(productName),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.15,
+            ),
+            Text("$price\$"),
           ],
         ),
       ),

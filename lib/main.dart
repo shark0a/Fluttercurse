@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task/views/home_page.dart';
+import 'package:task/views/spalsh_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: HomePage(),
+      home: const SplashScreen(),
     );
   }
 }

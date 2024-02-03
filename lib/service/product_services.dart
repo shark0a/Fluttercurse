@@ -8,8 +8,8 @@ class ProductsService {
   static Future<List<Product>> getProductsData() async {
     final response = await dio.get("${NetworkSettings.baseUrl}products");
     var data = response.data;
-    ProudctModel productsModel = ProudctModel.fromJson(data);
+    ProductsModel productsModel = ProductsModel.fromJson(data);
 
-    return productsModel.products;
+    return productsModel.products ?? [];
   }
 }

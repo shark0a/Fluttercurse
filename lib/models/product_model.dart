@@ -1,95 +1,83 @@
-// To parse this JSON data, do
-//
-//     final proudctModel = proudctModelFromJson(jsonString);
+class ProductsModel {
+  List<Product>? products;
+  int? total;
+  int? skip;
+  int? limit;
 
-import 'dart:convert';
-
-ProudctModel proudctModelFromJson(String str) =>
-    ProudctModel.fromJson(json.decode(str));
-
-String proudctModelToJson(ProudctModel data) => json.encode(data.toJson());
-
-class ProudctModel {
-  final int id;
-  final List<Product> products;
-  final int total;
-  final int discountedTotal;
-  final int userId;
-  final int totalProducts;
-  final int totalQuantity;
-
-  ProudctModel({
-    required this.id,
-    required this.products,
-    required this.total,
-    required this.discountedTotal,
-    required this.userId,
-    required this.totalProducts,
-    required this.totalQuantity,
+  ProductsModel({
+    this.products,
+    this.total,
+    this.skip,
+    this.limit,
   });
 
-  factory ProudctModel.fromJson(Map<String, dynamic> json) => ProudctModel(
-        id: json["id"],
-        products: List<Product>.from(
-            json["products"].map((x) => Product.fromJson(x))),
+  factory ProductsModel.fromJson(Map<String, dynamic> json) => ProductsModel(
+        products: json["products"] == null ? [] : List<Product>.from(json["products"]!.map((x) => Product.fromJson(x))),
         total: json["total"],
-        discountedTotal: json["discountedTotal"],
-        userId: json["userId"],
-        totalProducts: json["totalProducts"],
-        totalQuantity: json["totalQuantity"],
+        skip: json["skip"],
+        limit: json["limit"],
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "products": List<dynamic>.from(products.map((x) => x.toJson())),
+        "products": products == null ? [] : List<dynamic>.from(products!.map((x) => x.toJson())),
         "total": total,
-        "discountedTotal": discountedTotal,
-        "userId": userId,
-        "totalProducts": totalProducts,
-        "totalQuantity": totalQuantity,
+        "skip": skip,
+        "limit": limit,
       };
 }
 
 class Product {
-  final int id;
-  final String title;
-  final int price;
-  final int quantity;
-  final int total;
-  final double discountPercentage;
-  final int discountedPrice;
-  final String thumbnail;
+  int? id;
+  String? title;
+  String? description;
+  int? price;
+  double? discountPercentage;
+  double? rating;
+  int? stock;
+  String? brand;
+  String? category;
+  String? thumbnail;
+  List<String>? images;
 
   Product({
-    required this.id,
-    required this.title,
-    required this.price,
-    required this.quantity,
-    required this.total,
-    required this.discountPercentage,
-    required this.discountedPrice,
-    required this.thumbnail,
+    this.id,
+    this.title,
+    this.description,
+    this.price,
+    this.discountPercentage,
+    this.rating,
+    this.stock,
+    this.brand,
+    this.category,
+    this.thumbnail,
+    this.images,
   });
 
   factory Product.fromJson(Map<String, dynamic> json) => Product(
         id: json["id"],
         title: json["title"],
+        description: json["description"],
         price: json["price"],
-        quantity: json["quantity"],
-        total: json["total"],
         discountPercentage: json["discountPercentage"]?.toDouble(),
-        discountedPrice: json["discountedPrice"],
+        rating: json["rating"]?.toDouble(),
+        stock: json["stock"],
+        brand: json["brand"],
+        category: json["category"],
         thumbnail: json["thumbnail"],
+        images: json["images"] == null ? [] : List<String>.from(json["images"]!.map((x) => x)),
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
         "title": title,
+        "description": description,
         "price": price,
-        "quantity": quantity,
-        "total": total,
         "discountPercentage": discountPercentage,
-        "discountedPrice": discountedPrice,
+        "rating": rating,
+        "stock": stock,
+        "brand": brand,
+        "category": category,
         "thumbnail": thumbnail,
+        "images": images == null ? [] : List<dynamic>.from(images!.map((x) => x)),
       };
 }
