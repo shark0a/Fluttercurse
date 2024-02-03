@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:task/const.dart';
-import 'package:task/views/home_page.dart';
-import 'package:task/widgets/custom_button.dart';
+import 'package:shopping/const.dart';
+import 'package:shopping/views/home_page.dart';
+import 'package:shopping/widgets/custom_button.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});

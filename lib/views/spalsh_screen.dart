@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:task/const.dart';
-import 'package:task/views/home_page.dart';
-import 'package:task/views/login_page.dart';
+import 'package:shopping/const.dart';
+import 'package:shopping/views/home_page.dart';
+import 'package:shopping/views/login_page.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);

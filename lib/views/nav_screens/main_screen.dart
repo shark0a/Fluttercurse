@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:task/models/product_model.dart';
-import 'package:task/service/product_services.dart';
-import 'package:task/views/details_page.dart';
-import 'package:task/widgets/card_item.dart';
+import 'package:shopping/models/product_model.dart';
+import 'package:shopping/service/product_services.dart';
+import 'package:shopping/views/details_page.dart';
+import 'package:shopping/widgets/card_item.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -23,7 +23,6 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getData();
   }
@@ -34,8 +33,10 @@ class _MainScreenState extends State<MainScreen> {
         ? const Center(
             child: CircularProgressIndicator(),
           )
-        : ListView.builder(
+        : GridView.builder(
             itemCount: productlist.length,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2),
             itemBuilder: (BuildContext context, int index) {
               return InkWell(
                 onTap: () {
@@ -47,10 +48,13 @@ class _MainScreenState extends State<MainScreen> {
                         ),
                       ));
                 },
-                child: ItemCard(
-                    productName: productlist[index].title ?? "--",
-                    price: "${productlist[index].price}",
-                    thumbnail: productlist[index].thumbnail ?? ""),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ItemCard(
+                      productName: productlist[index].title ?? "--",
+                      price: "${productlist[index].price}",
+                      proudctIcon: productlist[index].thumbnail ?? ""),
+                ),
               );
             },
           );

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task/config/setting_util.dart';
+import 'package:shopping/config/setting_util.dart';
 
 class Drawerr extends StatelessWidget {
   const Drawerr({

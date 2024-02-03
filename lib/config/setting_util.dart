@@ -1,7 +1,7 @@
+import 'package:shopping/const.dart';
+import 'package:shopping/views/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:task/const.dart';
-import 'package:task/views/login_page.dart';
 
 class SettingsUtil {
   static Future<void> signOutFlow(BuildContext context) async {

@@ -1,5 +1,5 @@
+import 'package:shopping/views/spalsh_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:task/views/spalsh_screen.dart';
 
 void main() {
   runApp(const MyApp());

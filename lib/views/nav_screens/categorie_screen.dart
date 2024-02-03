@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task/widgets/categories_card.dart';
+import 'package:shopping/widgets/categories_card.dart';
 
 class CategorieScreen extends StatefulWidget {
   const CategorieScreen({super.key});

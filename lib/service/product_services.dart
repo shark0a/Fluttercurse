@@ -1,6 +1,6 @@
+import 'package:shopping/models/product_model.dart';
+import 'package:shopping/network_setting.dart';
 import 'package:dio/dio.dart';
-import 'package:task/models/product_model.dart';
-import 'package:task/network_setting.dart';
 
 class ProductsService {
   static final dio = Dio();

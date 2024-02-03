@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:task/models/product_model.dart';
+import 'package:shopping/models/product_model.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
   final Product product;

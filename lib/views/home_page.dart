@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:task/const.dart';
-import 'package:task/views/nav_screens/categorie_screen.dart';
-import 'package:task/views/nav_screens/main_screen.dart';
-import 'package:task/views/nav_screens/setting_screen.dart';
-import 'package:task/widgets/drawer.dart';
+import 'package:shopping/const.dart';
+import 'package:shopping/views/nav_screens/categorie_screen.dart';
+import 'package:shopping/views/nav_screens/main_screen.dart';
+import 'package:shopping/views/nav_screens/setting_screen.dart';
+import 'package:shopping/widgets/drawer.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

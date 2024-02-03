@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:task/config/setting_util.dart';
-import 'package:task/const.dart';
+import 'package:shopping/config/setting_util.dart';
+import 'package:shopping/const.dart';
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
