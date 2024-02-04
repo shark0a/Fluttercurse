@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopping/config/setting_util.dart';
+import 'package:shopping/views/cart_page.dart';
 
 class Drawerr extends StatelessWidget {
   const Drawerr({
@@ -69,7 +70,12 @@ class Drawerr extends StatelessWidget {
               title: Text('Add product'),
               iconColor: Colors.black,
             ),
-            const ListTile(
+            ListTile(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => CartScreen(),
+                ));
+              },
               leading: Icon(Icons.shopping_bag),
               title: Text('Cart'),
               iconColor: Colors.black,
