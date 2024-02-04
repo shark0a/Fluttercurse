@@ -14,7 +14,6 @@ class _CartScreenState extends State<CartScreen> {
   bool isLoading = true;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getData();
   }
@@ -38,7 +37,7 @@ class _CartScreenState extends State<CartScreen> {
             )
           : GridView.builder(
               gridDelegate:
-                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+                  const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.only(top: 50),
@@ -77,7 +76,7 @@ class _CartScreenState extends State<CartScreen> {
                                     Column(
                                       children: [
                                         Text(
-                                          '\price of one pice ${cartproduct[index].price}',
+                                          'price of one pice ${cartproduct[index].price}',
                                           style: const TextStyle(
                                               color: Colors.black,
                                               fontSize: 16),

@@ -73,11 +73,11 @@ class Drawerr extends StatelessWidget {
             ListTile(
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => CartScreen(),
+                  builder: (context) => const CartScreen(),
                 ));
               },
-              leading: Icon(Icons.shopping_bag),
-              title: Text('Cart'),
+              leading: const Icon(Icons.shopping_bag),
+              title: const Text('Cart'),
               iconColor: Colors.black,
             ),
             const ListTile(

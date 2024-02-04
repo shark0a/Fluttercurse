@@ -10,6 +10,6 @@ class CartServices {
     var data = response.data;
     CartModel cartproducts = CartModel.fromJson(data);
 
-    return cartproducts.products ?? [];
+    return cartproducts.products;
   }
 }
