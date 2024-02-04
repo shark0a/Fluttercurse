@@ -36,6 +36,7 @@ class _CartScreenState extends State<CartScreen> {
               child: CircularProgressIndicator(),
             )
           : GridView.builder(
+            itemCount: cartproduct.length,
               gridDelegate:
                   const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
               itemBuilder: (context, index) {
