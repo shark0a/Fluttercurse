@@ -6,7 +6,7 @@ class CategoriesCard extends StatelessWidget {
     required this.icon,
     required this.categoriesname,
   });
-  final IconData icon;
+  final String icon;
   final String categoriesname;
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class CategoriesCard extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon),
+            Image.network(icon),
             Text(categoriesname),
           ],
         ),

@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:shopping/config/firebase_cloud_util.dart';
 import 'package:shopping/widgets/categories_card.dart';
 
 class CategorieScreen extends StatefulWidget {
@@ -9,39 +11,30 @@ class CategorieScreen extends StatefulWidget {
 }
 
 class _CategorieScreenState extends State<CategorieScreen> {
-  final Map<IconData, String> categories = {
-    Icons.category: "Clothing",
-    Icons.sports_basketball: "Sports",
-    Icons.book: "Books",
-    Icons.music_note: "Music",
-    Icons.movie: "Movies",
-    Icons.food_bank: "Food",
-    Icons.directions_run: "Fitness",
-    Icons.home: "Home",
-    Icons.local_pizza: "Pizza",
-    Icons.airplanemode_active: "Travel",
-    Icons.brush: "Art",
-    Icons.devices_other: "Electronics",
-    Icons.pets: "Pets",
-    Icons.event: "Events",
-    Icons.shopping_cart: "Shopping",
-  };
+ final Stream<QuerySnapshot> categoryStream = FirebaseFirestore.instance.collection(FirebaseCloudStoreUtil.categoryCollectionName).snapshots();
   @override
   Widget build(BuildContext context) {
+    return StreamBuilder<QuerySnapshot>(
+      stream: categoryStream,
+      builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+        if (snapshot.hasError) {
+          return Text('Something went wrong');
+        }
+
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Text("Loading");
+        }
+
     return Scaffold(
       body: GridView.builder(
-        itemCount: categories.length,
+        itemCount: snapshot.data!.docs.length,
         gridDelegate:
             const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
-        itemBuilder: (context, index) {
-          final icon = categories.keys.elementAt(index);
-          final name = categories.values.elementAt(index);
-          return CategoriesCard(
-            categoriesname: name,
-            icon: icon,
-          );
-        },
-      ),
-    );
+        itemBuilder: (BuildContext context, int index) {
+            Map<String, dynamic> data = snapshot.data!.docs[index].data()! as Map<String, dynamic>;
+          return  CategoriesCard(icon:data["icon"] , categoriesname:data["name"]);
+          
+      }),
+     ); });
   }
 }

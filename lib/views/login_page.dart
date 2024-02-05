@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:shopping/const.dart';
+import 'package:shopping/config/firebase_auth_util.dart';
 import 'package:shopping/views/home_page.dart';
 import 'package:shopping/widgets/custom_button.dart';
 
@@ -15,6 +14,7 @@ class _LoginPageState extends State<LoginPage> {
   GlobalKey<FormState> formkey = GlobalKey();
   TextEditingController usernamecontroll = TextEditingController();
   TextEditingController passwordcontroll = TextEditingController();
+  bool isLoading = false;
   bool secure = true;
 
   @override
@@ -74,18 +74,26 @@ class _LoginPageState extends State<LoginPage> {
                   CustomButton(
                       ontap: () async {
                         if (formkey.currentState!.validate()) {
+                          bool loginResult = await FirebaseAuthUtil.loginIn(
+                              email: usernamecontroll.text,
+                              password: passwordcontroll.text);
+                          if (loginResult) {
+                            // ignore: use_build_context_synchronously
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const HomePage()),
+                            );
+                          } else {
+                            var snackBar = const SnackBar(
+                              content: Text("Email or password is not correct"),
+                            );
+                            // ignore: use_build_context_synchronously
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(snackBar);
+                          }
+                          isLoading = false;
                           setState(() {});
-                          final SharedPreferences prefs =
-                              await SharedPreferences.getInstance();
-                          await prefs.setString(
-                              AppSettings.usernameSharedPrefsKey,
-                              usernamecontroll.text);
-                          // ignore: use_build_context_synchronously
-                          Navigator.pushReplacement(context, MaterialPageRoute(
-                            builder: (context) {
-                              return const HomePage();
-                            },
-                          ));
                           passwordcontroll.clear();
                         }
                       },
