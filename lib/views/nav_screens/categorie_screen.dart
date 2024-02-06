@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:shopping/config/firebase_cloud_util.dart';
-import 'package:shopping/widgets/categories_card.dart';
 
 class CategorieScreen extends StatefulWidget {
   const CategorieScreen({super.key});
@@ -30,15 +29,38 @@ class _CategorieScreenState extends State<CategorieScreen> {
           return GridView.builder(
               itemCount: snapshot.data!.docs.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3),
+                  crossAxisCount: 2),
               itemBuilder: (BuildContext context, int index) {
                 Map<String, dynamic> data =
                     snapshot.data!.docs[index].data()! as Map<String, dynamic>;
-                return CategoriesCard(
-                  icon: data["photo_url"] ?? "--",
-                  categoriesname: data["name"] ?? "--",
-                  desc: data["desc"] ?? "--",
-                  count: data["item_no"] ?? "--",
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    width: 70,
+                    height: 120,
+                    decoration: BoxDecoration(
+                        color: Colors.cyanAccent,
+                        borderRadius: BorderRadius.circular(16)),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.network(
+                          data["photo_url"] ?? "--",
+                          width: 50,
+                          height: 80,
+                        ),
+                        Text(data["name"] ?? "--"),
+                        Text("desc: ${data["desc"]}"),
+                        Text("itemNO:${data["item_no"]}"),
+                        IconButton(
+                            onPressed: () {
+                              FirebaseCloudStoreUtil.deleteCategory(
+                                  snapshot.data!.docs[index].id);
+                            },
+                            icon: Icon(Icons.delete))
+                      ],
+                    ),
+                  ),
                 );
               });
         });
