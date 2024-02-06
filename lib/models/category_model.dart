@@ -1,9 +1,19 @@
 class CategoryModel {
-  final String icon;
   final String name;
-  CategoryModel({required this.icon, required this.name});
+  final String itemNo;
+  final String image;
+  final String desc;
+  const CategoryModel({
+    required this.name,
+    required this.desc,
+    required this.image,
+    required this.itemNo,
+  });
+
   Map<String, dynamic> toJson() => {
-        "icon": icon,
         "name": name,
+        "item_no": itemNo,
+        "photo_url": image,
+        "desc": desc,
       };
 }

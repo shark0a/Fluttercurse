@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopping/config/setting_util.dart';
+import 'package:shopping/views/add_categories_page.dart';
 import 'package:shopping/views/cart_page.dart';
 
 class Drawerr extends StatelessWidget {
@@ -65,7 +66,12 @@ class Drawerr extends StatelessWidget {
               title: Text('Profile'),
               iconColor: Colors.black,
             ),
-            const ListTile(
+            ListTile(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => AddCategoryPage(),
+                ));
+              },
               leading: Icon(Icons.add_shopping_cart),
               title: Text('Add product'),
               iconColor: Colors.black,

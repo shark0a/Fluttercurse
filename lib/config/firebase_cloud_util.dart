@@ -3,7 +3,7 @@ import 'package:shopping/models/category_model.dart';
 
 class FirebaseCloudStoreUtil {
   static var db = FirebaseFirestore.instance;
-  static String categoryCollectionName = "Categories";
+  static String categoryCollectionName = "categories";
 
   static Future<bool> addNewCategory(CategoryModel model) async {
     bool result = false;

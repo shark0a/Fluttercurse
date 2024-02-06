@@ -5,9 +5,13 @@ class CategoriesCard extends StatelessWidget {
     super.key,
     required this.icon,
     required this.categoriesname,
+    required this.desc,
+    required this.count,
   });
   final String icon;
   final String categoriesname;
+  final String desc;
+  final String count;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -20,8 +24,14 @@ class CategoriesCard extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.network(icon),
+            Image.network(
+              icon,
+              width: 50,
+              height: 80,
+            ),
             Text(categoriesname),
+            Text("desc $desc"),
+            Text("itemNO:$count"),
           ],
         ),
       ),
