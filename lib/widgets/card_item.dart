@@ -61,17 +61,18 @@ class ItemCard extends StatelessWidget {
           ),
           Positioned(
             right: 28,
-            top: 5,
-            child: Image.asset(
-              "assets/image/OIP.jpeg",
+            top: -30,
+            child:
+                // Image.asset(
+                //   "assets/image/OIP.jpeg",
+                //   height: 100,
+                //   width: 100,
+                // ),
+                Image.network(
+              proudctIcon,
               height: 100,
               width: 100,
             ),
-            // Image.network(
-            //   proudctIcon,
-            //   height: 100,
-            //   width: 100,
-            // ),
           )
         ],
       ),

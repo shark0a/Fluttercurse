@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:shopping/models/category_model.dart';
 
 class FirebaseCloudStoreUtil {
@@ -11,7 +12,9 @@ class FirebaseCloudStoreUtil {
       await db.collection(categoryCollectionName).add(model.toJson());
       result = true;
     } catch (e) {
-      print(e.toString());
+      if (kDebugMode) {
+        print(e.toString());
+      }
     }
     return result;
   }
@@ -22,7 +25,9 @@ class FirebaseCloudStoreUtil {
       await db.collection(categoryCollectionName).doc(id).delete();
       result = true;
     } catch (e) {
-      print(e.toString());
+      if (kDebugMode) {
+        print(e.toString());
+      }
     }
     return result;
   }

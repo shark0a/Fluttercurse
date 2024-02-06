@@ -20,11 +20,11 @@ class _CategorieScreenState extends State<CategorieScreen> {
         stream: categoryStream,
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (snapshot.hasError) {
-            return Text('Something went wrong');
+            return const Text('Something went wrong');
           }
 
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Text("Loading");
+            return const Text("Loading");
           }
 
           return GridView.builder(
@@ -35,10 +35,10 @@ class _CategorieScreenState extends State<CategorieScreen> {
                 Map<String, dynamic> data =
                     snapshot.data!.docs[index].data()! as Map<String, dynamic>;
                 return CategoriesCard(
-                  icon: data["photo_url"],
-                  categoriesname: data["name"],
-                  desc: data["des"],
-                  count: data["item_no"],
+                  icon: data["photo_url"] ?? "--",
+                  categoriesname: data["name"] ?? "--",
+                  desc: data["desc"] ?? "--",
+                  count: data["item_no"] ?? "--",
                 );
               });
         });

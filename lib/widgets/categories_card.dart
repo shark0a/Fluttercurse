@@ -18,7 +18,7 @@ class CategoriesCard extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Container(
         width: 50,
-        height: 50,
+        height: 100,
         decoration: BoxDecoration(
             color: Colors.cyanAccent, borderRadius: BorderRadius.circular(16)),
         child: Column(
@@ -30,7 +30,7 @@ class CategoriesCard extends StatelessWidget {
               height: 80,
             ),
             Text(categoriesname),
-            Text("desc $desc"),
+            Text("desc: $desc"),
             Text("itemNO:$count"),
           ],
         ),

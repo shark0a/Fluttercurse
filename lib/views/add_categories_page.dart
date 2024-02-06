@@ -90,7 +90,7 @@ class _AddCategoryPageState extends State<AddCategoryPage> {
                     },
                   )),
               isLoading
-                  ? Center(
+                  ? const Center(
                       child: CircularProgressIndicator(),
                     )
                   : AppButton(
@@ -115,12 +115,14 @@ class _AddCategoryPageState extends State<AddCategoryPage> {
                             var snackBar = const SnackBar(
                               content: Text("Category is Added :D"),
                             );
+                            // ignore: use_build_context_synchronously
                             ScaffoldMessenger.of(context)
                                 .showSnackBar(snackBar);
                           } else {
                             var snackBar = const SnackBar(
                               content: Text("Something went wrong!!"),
                             );
+                            // ignore: use_build_context_synchronously
                             ScaffoldMessenger.of(context)
                                 .showSnackBar(snackBar);
                           }
